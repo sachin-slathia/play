@@ -1,0 +1,17 @@
+# Routes
+GET         /homepage                                              controllers.MainApplication.homePage
+GET         /authenticate                                            controllers.MainApplication.authenticate
+POST        /authenticate                                            controllers.MainApplication.authenticate
+GET         /signup                                     controllers.MainApplication.signUpPage
+GET         /signin                                      controllers.MainApplication.signInPage
+GET         /profile                                     controllers.MainApplication.viewProfile
+POST        /signUpPage                                      controllers.MainApplication.signUpPage
+GET         /assignment                                     controllers.MainApplication.viewAssignment
+GET         /user                                    controllers.MainApplication.viewUser
+GET         /add                                    controllers.MainApplication.addAssignment
+
+
+
+GET   /getUser/:username                                     controllers.MainApplication.getUser(username:String)
+
+GET /public/*file                                            controllers.Assets.at(path="/public", file)

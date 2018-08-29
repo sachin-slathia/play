@@ -1,0 +1,38 @@
+
+.color{
+color:white
+}
+
+.form-text1{
+ color:white;
+ display:none;
+}
+.background1{
+
+ background-image: url("/public/images/background.jpg");
+}
+
+.background2{
+
+ background-image: url("/public/images/background1.jpg");
+}
+.background3{
+
+ background-image: url("/public/images/background2.jpeg");
+}
+
+.navbar{
+	position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbar .header-left{
+	float: right;
+	color:white
+}
+.table1{
+align="center" bgcolor="white"
+}

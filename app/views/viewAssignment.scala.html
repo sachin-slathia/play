@@ -1,0 +1,46 @@
+@(users: Seq[models.AssignmentRepo])(implicit requestHeader:RequestHeader,flash:Flash);
+
+@import helper._
+@main{
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+        </div>
+        <ul class="nav navbar-nav header-left">
+            <li ><a href="homepage">HOME</a></li>
+            <li ><a href="profile">PROFILE</a></li>
+            <li ><a href="assignment">VIEW ASSIGNMENTS</a></li>
+            <li ><a href="user">VIEW USER</a></li>
+            <li ><a href="add">ADD ASSIGNMENT</a></li>
+            <li ><a href="signin"> LOG OUT</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+<body class="background3">
+<br><br>
+<h2 class="color" align="center">Assignments</h2>
+<table class="table table-bordered table1">
+    <thead class="table1">
+    <tr bgcolor="red">
+        <th >Title</th>
+        <th >Description</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @for( user <- users){
+    <tr align="center" bgcolor="white">
+        <td>@user.title</td>
+        <td>@user.description</td>
+
+
+    </tr>
+    }
+    </tbody>
+
+
+</table>
+}

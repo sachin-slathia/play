@@ -1,0 +1,127 @@
+
+@(regForm:Form[forms.User])(implicit requestHeader:RequestHeader,flash:Flash);
+
+@import helper._
+@main{
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+        </div>
+        <ul class="nav navbar-nav header-left">
+            <li class="active"><a href= "signin">Sign In</a></li>
+            <li class="active"><a href="signup">Sign Up</a></li>
+        </ul>
+    </div>
+</nav>
+<br><br>
+<body class="background1">
+<br><br>
+<h2 align="center" class="color">Sign Up</h2>
+<form action="/signUpPage" method="post" class="container" >
+    @CSRF.formField
+    <br><br>
+
+    <div class="row color" >
+        <div class="col-md-4">
+            <small class="form-group">
+                <label for="input-first-name">First Name</label>
+                <input type="text" class="form-control" placeholder="Required" name="first-name" id="input-first-name" required>
+                <div class="form-text1"  id="first-name">First Name Required.
+                </div>
+            </div>
+
+        <!--  col-md-6   -->
+
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="input-middle-name">Middle Name</label>
+                <input type="text" class="form-control" placeholder="Optional" name="middle-name" id="input-middle-name">
+            </div>
+        </div>
+        <!--  col-md-6   -->
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="input-last-name">Last Name</label>
+                <input type="text" class="form-control" placeholder="Required" name="last-name" id="input-last-name" required>
+                <div class="form-text1" id="last-name">Last Name Required.
+                </small>
+            </div>
+        </div>
+        <!--  col-md-6   -->
+    </div>
+    </div>
+
+
+    <div class="row color">
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <label for="email">User Name</label>
+                <input type="email" class="form-control" id="input-email" name="user-name" placeholder="User Name" required>
+                <div class="form-text1" id="email">Email required.
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <label for="input-password">Password</label>
+                <input type="password" class="form-control" id="input-password" name="passwordGroup.password" placeholder="password" required>
+                <div class="form-text1" id="password">Please type Valid Password.
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <label for="input-confirm-password">Retype password</label>
+                <input type="password" class="form-control" id="input-confirm-password"  name="passwordGroup.confirmPassword" placeholder="retype-password" required>
+                <div class="form-text1" id="match-password">Password not
+                    match.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row color">
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label for="input-mobile">Phone Number</label>
+                <input type="tel" class="form-control" id="input-mobile" name="phone-number"placeholder="phone" required>
+                <div class="form-text1" id="mobile">Mobile number must
+                    have 10 numbers.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6"><label for="maleRadio">Gender</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="gender" value="male" id="maleRadio" checked>Male
+                </label>
+            </div>
+            <div class="row color">
+                <div class="col-md-6">
+                <label>
+                    <input type="radio" name="gender" value="female" id="femaleRadio" checked>Female
+                </label>
+                </div>
+
+
+            </div>
+            <!--  col-md-6   -->
+        </div>
+        <!--  row   -->
+
+
+    </div>
+
+
+    <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+</form>
+}

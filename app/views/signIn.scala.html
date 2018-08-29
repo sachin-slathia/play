@@ -1,0 +1,58 @@
+
+
+@()(implicit requestHeader:RequestHeader,flash:Flash);
+
+@import helper._
+@main{
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+        </div>
+        <ul class="nav navbar-nav header-left">
+            <li class="active"><a href= "signin">Sign In</a></li>
+            <li class="active"><a href="signup">Sign Up</a></li>
+        </ul>
+    </div>
+</nav>
+<br><br>
+<body class="background2">
+<br><br>
+<h2 align="center" class="color">Sign In</h2>
+<form action="/authenticate" method="Post" class="container" >
+    @CSRF.formField
+    <br><br>
+    <div class="row color">
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label for="email">User Name</label>
+                <input type="email" class="form-control" id="input-email" name="user-name" placeholder="Email" required>
+                <div class="form-text1" id="email">Email required.
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label for="input-password">Password</label>
+                <input type="password" class="form-control" id="input-password" name="password" placeholder="password" required>
+                <div class="form-text1" id="password">Please type Valid Password.
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+<div class="row color">
+    <div class="col-md-6">
+    <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+    </div>
+    <div class="col-md-6">
+    <button type="submit" class="btn btn-primary" id="forget-password">Forget Password</button>
+    </div>
+</div>
+</form>
+}

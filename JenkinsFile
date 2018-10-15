@@ -1,0 +1,67 @@
+pipeline {
+	agent any
+
+	stages {
+	    stage ('Authorizing the git environment')
+	    {
+	        steps{
+	            echo "Getting file from github"
+	            git 'https://github.com/slathia15/play.git'
+	        }
+	    }
+	    stage ('All is well'){
+
+	       steps{
+	           echo "ALL is well ....BC"
+	       }
+	     }
+	    stage ('Compile Stage'){
+
+	       steps{
+	           echo "Compiling ...."
+	                      
+	           sh "${tool name: 'sbt', type:'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/usr/bin/sbt compile"
+	          
+	       }
+	    }
+	    stage ('Test Stage'){
+
+	         steps{
+	             echo "Testing ........"
+	              sh "${tool name: 'sbt', type:'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/usr/bin/sbt run"
+	         }
+	    }
+	     stage ('Creating a executable file'){
+
+	         steps{
+	             echo "Testing ........"
+	              sh "${tool name: 'sbt', type:'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/usr/bin/sbt dist"
+	         }
+	    }
+	    stage ('Unzip a file'){
+
+	         steps{
+	             echo "Unzip a file ........"
+	             sh 'unzip /home/knoldus/.jenkins/jobs/Firstgroovy/workspace/target/universal/assignment-1.0-SNAPSHOT.zip'
+	            
+	              
+	         }
+	    }
+	    stage ('Remove a unzip file'){
+
+	    	steps{
+	    		echo "Rmove Unzip file..............."
+	    		sh 'rm -r /home/knoldus/.jenkins/jobs/Firstgroovy/workspace/target/universal/assignment-1.0-SNAPSHOT.zip'
+	    	}
+	    }
+	    stage ('Execute a file'){
+
+	     	steps{
+                echo "Execute a file ............"
+                sh 'cd /home/knoldus/.jenkins/jobs/Firstgroovy/workspace/target/universal/'
+                sh 'assignment-1.0-SNAPSHOT.zip'
+
+	     	}
+	}
+  }
+}

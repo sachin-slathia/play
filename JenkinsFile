@@ -1,6 +1,8 @@
 pipeline {
 	agent any
-
+	     triggers {
+       pollSCM(0 */10 * ? * *)
+    }
 	stages {
 	    stage ('Authorizing the git environment')
 	    {
@@ -38,30 +40,5 @@ pipeline {
 	              sh "${tool name: 'sbt', type:'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/usr/bin/sbt dist"
 	         }
 	    }
-	    stage ('Unzip a file'){
-
-	         steps{
-	             echo "Unzip a file ........"
-	             sh 'unzip /home/knoldus/.jenkins/jobs/Firstgroovy/workspace/target/universal/assignment-1.0-SNAPSHOT.zip'
-	            
-	              
-	         }
-	    }
-	    stage ('Remove a unzip file'){
-
-	    	steps{
-	    		echo "Rmove Unzip file..............."
-	    		sh 'rm -r /home/knoldus/.jenkins/jobs/Firstgroovy/workspace/target/universal/assignment-1.0-SNAPSHOT.zip'
-	    	}
-	    }
-	    stage ('Execute a file'){
-
-	     	steps{
-                echo "Execute a file ............"
-                sh 'cd /home/knoldus/.jenkins/jobs/Firstgroovy/workspace/target/universal/'
-                sh 'assignment-1.0-SNAPSHOT'
-
-	     	}
-	}
   }
 }

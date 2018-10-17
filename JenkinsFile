@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	     triggers {
-       pollSCM('0 */10 * ? * *')
+       pollSCM('*/5 * * * *')
     }
 	stages {
 	    stage ('Authorizing the git environment')

@@ -59,7 +59,7 @@ pipeline {
 	     	steps{
                 echo "Execute a file ............"
                 sh 'cd /home/knoldus/.jenkins/jobs/Firstgroovy/workspace/target/universal/'
-                sh 'assignment-1.0-SNAPSHOT.zip'
+                sh 'assignment-1.0-SNAPSHOT'
 
 	     	}
 	}

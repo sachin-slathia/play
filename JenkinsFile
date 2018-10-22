@@ -11,12 +11,6 @@ pipeline {
 	            git 'https://github.com/slathia15/play.git'
 	        }
 	    }
-	    stage ('All is well'){
-
-	       steps{
-	           echo "ALL is well ....BC"
-	       }
-	     }
 	    stage ('Compile Stage'){
 
 	       steps{

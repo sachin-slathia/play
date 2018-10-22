@@ -40,5 +40,14 @@ pipeline {
 	              sh "${tool name: 'sbt', type:'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/usr/bin/sbt dist"
 	         }
 	    }
+ 	     stage ('Deploying stage'){
+
+	       steps{
+	           echo "Deploying...."
+	                      
+	           sh "${tool name: 'ansible'}-playbook /home/knoldus/Personal/DEVOPS/unzip.yml -become -u ec2-user"
+	          
+	       }
+	    }
   }
 }

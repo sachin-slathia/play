@@ -40,7 +40,7 @@ pipeline {
  	     stage ('Deploying stage'){
 		when {
 		  branch 'Develop'                  
-}
+                }
 	       steps{
 	           echo "Deploying...."
 	                      

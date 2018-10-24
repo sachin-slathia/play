@@ -1,8 +1,5 @@
 pipeline {
 	agent any
-	     triggers {
-       pollSCM('*/5 * * * *')
-    }
 	stages {
 	    stage ('Authorizing the git environment')
 	    {
@@ -12,9 +9,6 @@ pipeline {
 	        }
 	    }
 	    stage ('Compile Stage'){
-               when {
-                 branch 'master'
-               }
 	       steps{
  			
 	           echo "Compiling ...."

@@ -1,7 +1,7 @@
 FROM java
 RUN echo "Hello World" | tee abc
 ENV DUMMY=knol	
-
+fdsf
 RUN echo $DUMMY
 
 COPY target/universal/assignment-1.0-SNAPSHOT.zip /

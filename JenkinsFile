@@ -5,7 +5,7 @@ pipeline {
 	    {
 	        steps{
 	            echo "Getting file from github"
-	            git 'https://github.com/slathia15/play.git'
+	            sh "${tool name: 'git'} clone https://github.com/slathia15/play.git"
 	        }
 	    }
 	    stage ('Compile Stage'){

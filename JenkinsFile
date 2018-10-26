@@ -1,0 +1,46 @@
+pipeline {
+	agent any
+	stages {
+	    stage ('Authorizing the git environment')
+	    {
+	        steps{
+	            echo "Getting file from github"
+                    sh "${tool name: 'git'} clone https://github.com/slathia15/play.git"
+	        }
+	    }
+	    stage ('Compile Stage'){
+	       steps{
+ 			
+	           echo "Compiling ...."
+	                      
+	           sh "${tool name: 'sbt', type:'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/usr/bin/sbt compile"
+	          
+	       }
+	    }
+	    stage ('Test Stage'){
+
+	         steps{
+	             echo "Testing ........"
+	              sh "${tool name: 'sbt', type:'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/usr/bin/sbt test"
+	         }
+	    }
+	     stage ('Creating a executable file'){
+
+	         steps{
+	             echo "Creating a executable file ........"
+	              sh "${tool name: 'sbt', type:'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation'}/usr/bin/sbt dist"
+	         }
+	    }
+ 	     stage ('Deploying stage'){
+		when {
+                 branch 'Develop'
+               }
+	       steps{
+	           echo "Deploying...."
+	                      
+	           sh "${tool name: 'ansible'}-playbook /home/knoldus/Personal/DEVOPS/unzip.yml -become -u ec2-user"
+	          
+	       }
+	    }
+  }
+}

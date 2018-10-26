@@ -2,7 +2,7 @@
 GET         /homepage                                              controllers.MainApplication.homePage
 GET         /authenticate                                            controllers.MainApplication.authenticate
 POST        /authenticate                                            controllers.MainApplication.authenticate
-GET         /signup                                     controllers.MainApplication.signUpPage
+GET         /signup                                     controllers.MainApplication.viewProfile
 GET         /signin                                      controllers.MainApplication.signInPage
 GET         /profile                                     controllers.MainApplication.viewProfile
 POST        /signUpPage                                      controllers.MainApplication.signUpPage
